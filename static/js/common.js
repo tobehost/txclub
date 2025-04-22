@@ -188,7 +188,7 @@ var searchs = {
 				setTimeout('$(".header_nav .search").removeClass("bd_red")', 600);
 				return false;
 			}
-			var cat        = $("#cat"+head).val();
+			var cat = $("#cat"+head).val();
 		}else if(head=='bom_bar'){
 			var keywords   = encodeURIComponent($("#keywords"+head).val());
 			if (keywords == "" || keywords == encodeURIComponent("杈撳叆鎼滅储鍏抽敭瀛�")) {
