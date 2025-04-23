@@ -145,9 +145,9 @@
                             link.href = 'javascript:void(0)';
                             link.innerHTML = `
                                 <div>${article.title}</div>
-                                <p class="fz_12 color_969">${article.date}</p>
+                                
                             `;
-                            
+                            // <p class="fz_12 color_969">${article.date}</p>
                             link.addEventListener('click', () => loadArticle(article.filename));
                             
                             listItem.appendChild(link);
