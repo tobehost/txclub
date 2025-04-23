@@ -163,10 +163,37 @@
                             return articles;
                         }
                 
-                        // 加载并渲染Markdown文章（保持原有实现不变）
+                        
+                        // 加载并渲染Markdown文章
                         async function loadArticle(filename) {
-                            // 保持原有实现
+                            try {
+                                const response = await fetch(filename);
+                                const markdown = await response.text();
+                                const htmlContent = marked.parse(markdown);
+                
+                                document.getElementById('content').innerHTML = `
+                                    <div class="markdown-body">
+                                        ${htmlContent}
+                                    </div>
+                                `;
+                            } catch (error) {
+                                console.error('加载文章失败:', error);
+                                document.getElementById('content').innerHTML = `
+                                    <div class="error">
+                                        <h2>文章加载失败</h2>
+                                        <p>请检查文件是否存在或路径是否正确</p>
+                                    </div>
+                                `;
+                            }
                         }
+
+                        // 默认加载第一篇文章
+                        window.onload = () => {
+                            initSidebar();
+                            if (articles.length > 0) {
+                                loadArticle(articles[0].filename);
+                            }
+                        };
                 
                         // 页面初始化
                         window.onload = async () => {
@@ -175,6 +202,8 @@
                                 loadArticle(articles[0].filename);
                             }
                         };
+
+                        
                     </script>
                 </body>
                 </html>
