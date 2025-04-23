@@ -16,24 +16,6 @@
         <link rel="stylesheet" type="text/css" href="/static/css/animate.css"/>
         <link rel="shortcut icon" href="https://s21.ax1x.com/2025/04/17/pEhrIht.png" type="image/x-icon" />
         <style>
-            
-            /* 左侧导航栏样式 */
-            #sidebar {
-                width: 250px;
-                background-color: #f5f5f5;
-                padding: 20px;
-                border-right: 1px solid #ddd;
-                overflow-y: auto;
-            }
-    
-            /* 右侧内容区域样式 */
-            #content {
-                flex: 1;
-                padding: 30px;
-                max-width: 800px;
-                margin: 0 auto;
-            }
-    
             /* 文章列表样式 */
             .article-list {
                 list-style: none;
@@ -118,14 +100,14 @@
 			</div>
 		</div>
 		<!-- 页面头 结束-->    
-        <div class="about_dawards bg_212 todaoy_about" id="top">
+        <div class="about_dawards bg_212">
             <div class="page_auto">
-                <nav id="sidebar">
-                    <ul class="article-list" id="article-list"></ul>
-                </nav>
+                <div class="about_dawards_con p_r">
+                    <div class="about_dawards_nav transition fw_b bg_212 pd_b_20" id="js_dawards_nav">
+                        <ul id="article-list"></ul>
+                    </div>
+                    <div class="about_dawards_info color_fff pos_rel" id="content"></div>
                 
-                <main id="content"></main>
-            
                 <script>
                     // 文章列表配置（需要手动维护）
                     const articles = [
