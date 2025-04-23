@@ -17,6 +17,13 @@
         <link rel="shortcut icon" href="https://s21.ax1x.com/2025/04/17/pEhrIht.png" type="image/x-icon" />
         <style>
             /* 文章列表样式 */
+            .markdown-content{
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                background-color: blanchedalmond;
+                width: 100%;
+                padding: 20px;
+                border-radius: 15%;
+            }
             .article-list {
                 list-style: none;
                 padding: 0;
@@ -106,13 +113,13 @@
                     <div class="about_dawards_nav transition fw_b bg_212 pd_b_20" id="js_dawards_nav">
                         <ul id="article-list"></ul>
                     </div>
-                    <div class="about_dawards_info color_fff pos_rel" id="content"></div>
+                    <div class="markdown-content color_fff pos_rel" id="content"></div>
                 
                 <script>
                     // 文章列表配置（需要手动维护）
                     const articles = [
                         { 
-                            title: "第一篇文章",
+                            title: "陈教练，我们起对您说……",
                             filename: "2025042301.md",
                             date: "2025-04-23"
                         },
@@ -141,7 +148,7 @@
                             link.href = 'javascript:void(0)';
                             link.innerHTML = `
                                 <div>${article.title}</div>
-                                <small style="color: #666;">${article.date}</small>
+                                <span class="fz_12 color_969 mg_b_50 w_760 line_24">${article.date}</span>
                             `;
                             
                             link.addEventListener('click', () => loadArticle(article.filename));
