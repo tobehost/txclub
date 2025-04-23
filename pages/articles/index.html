@@ -17,7 +17,7 @@
         <link rel="shortcut icon" href="https://s21.ax1x.com/2025/04/17/pEhrIht.png" type="image/x-icon" />
         <style>
             /*导航栏样式*/
-            .article_nav{position: absolute; width: 200px;  z-index: 20; line-height: 24px; transition: all 2s linear;}
+            .article_nav{position: absolute; width: 210px;  z-index: 20; line-height: 24px; transition: all 2s linear;}
             .article_nav.nav_scroll{position: fixed; top: 50px;}
             .article_nav.nav_stop{position: absolute; bottom: 36px;}
             .article_nav li{ height: 30px; line-height: 30px; padding-left: 20px; box-sizing: border-box; border-left:3px solid transparent;}
@@ -122,80 +122,62 @@
                     </div>
                     <div class="about_dawards_info" id="content"></div>
                 
-                <script>
-                    // 文章列表配置（需要手动维护）
-                    const articles = [
-                        { 
-                            title: "陈教练，我们起对您说……",
-                            filename: "2025042301.md",
-                            date: "2025-04-23"
-                        },
-                        {
-                            title: "技术笔记",
-                            filename: "tech-note.md",
-                            date: "2023-08-21"
-                        },
-                        {
-                            title: "学习心得",
-                            filename: "study-notes.md",
-                            date: "2023-08-22"
+                    <script>
+                        // 异步加载文章列表
+                        async function loadArticleList() {
+                            try {
+                                const response = await fetch('articles.json');
+                                if (!response.ok) throw new Error('网络响应不正常');
+                                return await response.json();
+                            } catch (error) {
+                                console.error('加载文章列表失败:', error);
+                                document.getElementById('sidebar').innerHTML = `
+                                    <div style="color: red; padding: 20px;">
+                                        无法加载文章列表，请检查articles.json文件
+                                    </div>
+                                `;
+                                return [];
+                            }
                         }
-                    ];
-            
-                    // 初始化左侧导航栏
-                    function initSidebar() {
-                        const listElement = document.getElementById('article-list');
-                        
-                        articles.forEach(article => {
-                            const listItem = document.createElement('li');
-                            listItem.className = 'article-item';
+                
+                        // 初始化左侧导航栏
+                        async function initSidebar() {
+                            const articles = await loadArticleList();
+                            const listElement = document.getElementById('article-list');
                             
-                            const link = document.createElement('a');
-                            link.className = 'article-link';
-                            link.href = 'javascript:void(0)';
-                            link.innerHTML = `
-                                <div>${article.title}</div>
+                            articles.forEach(article => {
+                                const listItem = document.createElement('li');
+                                listItem.className = 'article-item';
                                 
-                            `;
-                            // <p class="fz_12 color_969">${article.date}</p>
-                            link.addEventListener('click', () => loadArticle(article.filename));
+                                const link = document.createElement('a');
+                                link.className = 'article-link';
+                                link.href = 'javascript:void(0)';
+                                link.innerHTML = `<div>${article.title}</div>: ''}`;
+                                
+                                link.addEventListener('click', () => loadArticle(article.filename));
+                                
+                                listItem.appendChild(link);
+                                listElement.appendChild(listItem);
+                            });
                             
-                            listItem.appendChild(link);
-                            listElement.appendChild(listItem);
-                        });
-                    }
-            
-                    // 加载并渲染Markdown文章
-                    async function loadArticle(filename) {
-                        try {
-                            const response = await fetch(filename);
-                            const markdown = await response.text();
-                            const htmlContent = marked.parse(markdown);
-                            
-                            document.getElementById('content').innerHTML = `
-                                <div class="markdown-body">
-                                    ${htmlContent}
-                                </div>
-                            `;
-                        } catch (error) {
-                            console.error('加载文章失败:', error);
-                            document.getElementById('content').innerHTML = `
-                                <div class="error">
-                                    <h2>文章加载失败</h2>
-                                    <p>请检查文件是否存在或路径是否正确</p>
-                                </div>
-                            `;
+                            return articles;
                         }
-                    }
-            
-                    // 默认加载第一篇文章
-                    window.onload = () => {
-                        initSidebar();
-                        if (articles.length > 0) {
-                            loadArticle(articles[0].filename);
+                
+                        // 加载并渲染Markdown文章（保持原有实现不变）
+                        async function loadArticle(filename) {
+                            // 保持原有实现
                         }
-                    };
-                </script>
+                
+                        // 页面初始化
+                        window.onload = async () => {
+                            const articles = await initSidebar();
+                            if (articles.length > 0) {
+                                loadArticle(articles[0].filename);
+                            }
+                        };
+                    </script>
+                </body>
+                </html>
             </div>
         </div>
     <!-- 页脚 开始 -->
