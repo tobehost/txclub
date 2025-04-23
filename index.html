@@ -23,7 +23,7 @@
                         </a>
 						<div class="">
                             <ul class="dw_nav_list flex jc_c">
-								<li  class="current"><a href="index.html">首页</a></li>
+								<li  class="current"><a href="https://jqd.tobe.host/">首页</a></li>
 								<li ><a href="./pages/club.html">俱乐部</a></li>
 								<li ><a href="./pages/pwall.html">图片墙</a></li>
 								<li ><a href="./pages/honor.html">荣誉</a></li>
@@ -47,6 +47,7 @@
             <div class="bg_black">
                 <div class="dw_kv_box p_r">
                     <!-- Swiper -->
+                     <!--
                     <div class="swiper-container" id="kv_swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -78,6 +79,103 @@
                                 </div>
                             </div>
                         </div>
+                        下一DOM是Deepseek提供的Swiper代码-->
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="https://www.digitaling.com/articles/1231943.html">
+                                        <img src="https://s21.ax1x.com/2025/04/17/pEhc65d.jpg" width="100%" alt="陈家军的故事">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://www.digitaling.com/articles/1304869.html">
+                                        <img src="https://s21.ax1x.com/2025/04/17/pEhcsVe.jpg" width="100%" alt="我们的青春">
+                                    </a>
+                                </div>
+                                <!-- <div class="swiper-slide">Slide 3</div> -->
+                            </div>
+                            <!-- 分页器和导航按钮 -->
+                            <div class="swiper-pagination"></div>
+                            <button class="swiper-button-prev">《</button>
+                            <button class="swiper-button-next">》</button>
+                          </div>
+                          
+                          <script>
+                          class Swiper {
+                            constructor(container) {
+                              this.container = container;
+                              this.wrapper = container.querySelector('.swiper-wrapper');
+                              this.slides = Array.from(container.querySelectorAll('.swiper-slide'));
+                              this.currentIndex = 0;
+                              this.isDragging = false;
+                              this.startX = 0;
+                              this.init();
+                            }
+                          
+                            init() {
+                              // 初始化样式
+                              this.wrapper.style.display = 'flex';
+                              this.wrapper.style.transition = 'transform 0.3s ease';
+                          
+                              // 事件监听
+                              this.container.addEventListener('mousedown', this.onDragStart.bind(this));
+                              this.container.addEventListener('mousemove', this.onDragMove.bind(this));
+                              this.container.addEventListener('mouseup', this.onDragEnd.bind(this));
+                              this.container.addEventListener('touchstart', this.onDragStart.bind(this));
+                              this.container.addEventListener('touchmove', this.onDragMove.bind(this));
+                              this.container.addEventListener('touchend', this.onDragEnd.bind(this));
+                            }
+                          
+                            onDragStart(e) {
+                              this.isDragging = true;
+                              this.startX = e.clientX || e.touches[0].clientX;
+                              this.wrapper.style.transition = 'none'; // 拖拽时禁用动画
+                            }
+                          
+                            onDragMove(e) {
+                              if (!this.isDragging) return;
+                              const x = e.clientX || e.touches[0].clientX;
+                              const diff = x - this.startX;
+                              this.wrapper.style.transform = `translateX(${-this.currentIndex * 100 + diff}%)`;
+                            }
+                          
+                            onDragEnd(e) {
+                              if (!this.isDragging) return;
+                              this.isDragging = false;
+                              const endX = e.clientX || e.changedTouches[0].clientX;
+                              const diff = endX - this.startX;
+                              this.wrapper.style.transition = 'transform 0.3s ease';
+                          
+                              // 根据滑动距离判断是否切换
+                              if (Math.abs(diff) > 50) {
+                                this.currentIndex += diff > 0 ? -1 : 1;
+                              }
+                              this.slideTo(this.currentIndex);
+                            }
+                          
+                            slideTo(index) {
+                              // 边界检查
+                              if (index < 0) index = 0;
+                              if (index >= this.slides.length) index = this.slides.length - 1;
+                              this.currentIndex = index;
+                              this.wrapper.style.transform = `translateX(-${index * 100}%)`;
+                            }
+                          
+                            // 自动播放（可选）
+                            autoPlay(interval = 3000) {
+                              setInterval(() => {
+                                this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+                                this.slideTo(this.currentIndex);
+                              }, interval);
+                            }
+                          }
+                          
+                          // 使用
+                          const swiper = new Swiper(document.querySelector('.swiper'));
+                          swiper.autoPlay(); // 启用自动播放
+                          </script>
+                        <!-- end deepseek code -->
+
                         <!-- Add Pagination -->
                         <!-- <div class="swiper-pagination"></div> -->
                     </div>
@@ -88,7 +186,7 @@
                     <div class="pd_96_0">
                         <div class="mg_b_40">
                             <h1 class="ws_nw mg_b_40">
-                                <img src="./image/做到极致.png" width="100%" alt="做到极致" />
+                                <img src="/static/image/做到极致.png" width="100%" alt="做到极致" />
                             </h1>
                             <div class="fz_24 lh_40 color_969 fw_b">
                                 在体育老师的岗位上，陈天喜老师做到了极致！  在毽球教练的角色上，陈天喜教练做到了极致！
@@ -389,7 +487,7 @@
         <script type="text/javascript" src="https://file.digitaling.com/www/js/3rd/qrcode.js"></script> 
 		<script type="text/javascript" src="https://file.digitaling.com/www/js/fqs.js"></script>
 		<script type="text/javascript" src="./static/js/common.js"></script>
-		<script type="text/javascript" src="https://file.digitaling.com/www/js/dawards.js?v=241226"></script>
+		<script type="text/javascript" src="./static/js/dawards.js"></script>
         <script type="text/javascript">
             $(function(){
 		        common.init();
