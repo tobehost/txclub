@@ -749,10 +749,10 @@ a.color_fff:hover .arrow_right:before{ border-color: #b58759; }
 .about_dawards_title .share_links a{width: 38px; height: 38px; background: #333;}
 .about_dawards_title .awards_d_icon{float: left; margin-left: 10px; width: 38px; height: 38px;}
 .about_dawards_con{padding-top: 60px; color: #fff; font-size: 14px;padding-bottom: 100px; }
-.about_dawards_nav{position: absolute; width: 150px;  z-index: 20; line-height: 24px; transition: all 2s linear;}
-.about_dawards_nav.nav_scroll{position: fixed; top: 60px;}
+.about_dawards_nav{position: absolute; width: 180px;  z-index: 20; line-height: 24px; transition: all 2s linear;}
+.about_dawards_nav.nav_scroll{position: fixed; top: 50px;}
 .about_dawards_nav.nav_stop{position: absolute; bottom: 60px;}
-.about_dawards_nav li{ height: 46px; line-height: 46px; padding-left: 20px; box-sizing: border-box; border-left:3px solid transparent;}
+.about_dawards_nav li{ height: 28px; line-height: 28px; padding-left: 20px; box-sizing: border-box; border-left:3px solid transparent;}
 .about_dawards_nav li a{ display:block; color:#fff;}
 .about_dawards_nav li.active a{color: #b58759;}
 .about_dawards_nav li.active{border-left-color: #b58759;}
