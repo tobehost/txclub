@@ -77,6 +77,18 @@
                 overflow: auto;
                 border-radius: 6px;
             }
+
+            /* 添加加载动画样式 */
+.loading-indicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 25px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    border-radius: 4px;
+}
         </style>
 	</head>
 
@@ -121,9 +133,33 @@
                         <ul id="article-list"></ul>
                     </div>
                     <div class="about_dawards_info" id="content"></div>
+                    <div class="loading-indicator"></div>
                 
                     <script>
+                        // 带缓存的加载方法
+                        async function loadArticleList() {
+                            try {
+                                const cache = localStorage.getItem('articleCache');
+                                if (cache) {
+                                    return JSON.parse(cache);
+                                }
+        
+                                const response = await fetch('articles.json?v=' + Date.now());
+                                const data = await response.json();
+                                localStorage.setItem('articleCache', JSON.stringify(data));
+                                return data;
+                            } catch (error) {
+                                // 错误处理
+                                console.error('加载文章列表失败:', error);
+                                document.getElementById('sidebar').innerHTML = `
+                                    <div style="color: red; padding: 20px;">
+                                        无法加载文章列表，请检查articles.json文件
+                                    </div>
+                                `;
+                            }
+                        };
                         // 异步加载文章列表
+                        /*
                         async function loadArticleList() {
                             try {
                                 const response = await fetch('articles.json');
@@ -139,6 +175,7 @@
                                 return [];
                             }
                         }
+                        */
                 
                         // 初始化左侧导航栏
                         async function initSidebar() {
@@ -161,7 +198,7 @@
                             });
                             
                             return articles;
-                        }
+                        };
                 
                         
                         // 加载并渲染Markdown文章
@@ -185,7 +222,7 @@
                                     </div>
                                 `;
                             }
-                        }
+                        };
 
                         // 默认加载第一篇文章
                         window.onload = () => {
@@ -202,8 +239,13 @@
                                 loadArticle(articles[0].filename);
                             }
                         };
-
-                        
+                        // 为JSON数据添加校验逻辑
+                        function validateArticle(article) {
+                            return article.hasOwnProperty('title') && 
+                                article.hasOwnProperty('filename') &&
+                                typeof article.title === 'string' &&
+                                typeof article.filename === 'string';
+                        }
                     </script>
                 </body>
                 </html>
