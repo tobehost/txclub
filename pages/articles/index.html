@@ -1,1 +1,301 @@
-站内文章目录导航
+<!DOCTYPE html>
+<html lang="zh_CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>天喜俱乐部｜李家军</title>
+        <meta name="keywords" content="毽球，陈天喜，天喜俱乐部，全国冠军，重庆造纸厂子弟中学"/>
+        <meta name="description" content="陈天喜教练率领的子弟中学毽球队，多次获得全国冠军及其它好成绩。天喜键球俱乐部。"/>
+        <meta name="author" content="天喜俱乐部"/>
+    	<meta name="copyright" content="www.jqd.tobe.host"/>
+        <!-- marked.js -->
+        <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/5.2.0/github-markdown.min.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css">
+
+		<link rel="stylesheet" type="text/css" href="/static/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/jqd-club.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/animate.css"/>
+        <link rel="shortcut icon" href="https://s21.ax1x.com/2025/04/17/pEhrIht.png" type="image/x-icon" />
+        <style>
+            /* 基础布局样式 */
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                display: flex;
+                min-height: 100vh;
+            }
+    
+            /* 左侧导航栏样式 */
+            #sidebar {
+                width: 250px;
+                background-color: #f5f5f5;
+                padding: 20px;
+                border-right: 1px solid #ddd;
+                overflow-y: auto;
+            }
+    
+            /* 右侧内容区域样式 */
+            #content {
+                flex: 1;
+                padding: 30px;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+    
+            /* 文章列表样式 */
+            .article-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            .article-item {
+                margin: 10px 0;
+            }
+    
+            .article-link {
+                color: #333;
+                text-decoration: none;
+                padding: 8px;
+                display: block;
+                border-radius: 4px;
+                transition: background-color 0.2s;
+            }
+    
+            .article-link:hover {
+                background-color: #e0e0e0;
+            }
+    
+            /* Markdown内容样式 */
+            .markdown-body {
+                line-height: 1.6;
+            }
+    
+            .markdown-body h1, 
+            .markdown-body h2 {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 0.3em;
+            }
+    
+            .markdown-body code {
+                background-color: #f6f8fa;
+                padding: 0.2em 0.4em;
+                border-radius: 3px;
+            }
+    
+            .markdown-body pre {
+                background-color: #f6f8fa;
+                padding: 16px;
+                overflow: auto;
+                border-radius: 6px;
+            }
+        </style>
+	</head>
+
+	<body >
+
+    
+		<!-- 页面头 开始-->
+		<div class="header">
+			<div class="dw_header_nav">
+				<div class="page_auto clearfix">
+					<div class="h_80 fz_14 flex lr_center">
+						<a href="https://jqd.tobe.host" class="w_150">
+                            <img src="https://s21.ax1x.com/2025/04/17/pEhcnCn.png" height="56" alt="天喜俱乐部" title="天喜俱乐部" />
+                        </a>
+						<div class="">
+                            <ul class="dw_nav_list flex jc_c">
+								<li ><a href="/index.html">首页</a></li>
+								<li ><a href="/pages/club.html">俱乐部</a></li>
+								<li ><a href="/pages/pwall.html">图片墙</a></li>
+								<li ><a href="/pages/honor.html">荣誉</a></li>
+                                <li class="current"><a href="/pages/articles/index.html">博客</a></li>
+							</ul>
+                        </div>
+						<div class="w_150">
+							<ul class="dw_nav_right flex r_center" id="js_dw_nav">
+                                <li class="flex flex_c"><a href="javascript:void(0)" class="pd_0_25 fw_b lh36_btn bd_b58 ws_nw">管理</a></li>
+								<!--未登录时显示-->
+								<li class="login flex flex_c">
+									<a href="javascript:void(0)">登录</a>
+								</li>
+                            </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 页面头 结束-->    
+        <div class="about_dawards bg_212 todaoy_about" id="top">
+            <div class="page_auto">
+                <nav id="sidebar">
+                    <ul class="article-list" id="article-list"></ul>
+                </nav>
+                
+                <main id="content"></main>
+            
+                <script>
+                    // 文章列表配置（需要手动维护）
+                    const articles = [
+                        { 
+                            title: "第一篇文章",
+                            filename: "2025042301.md",
+                            date: "2025-04-23"
+                        },
+                        {
+                            title: "技术笔记",
+                            filename: "tech-note.md",
+                            date: "2023-08-21"
+                        },
+                        {
+                            title: "学习心得",
+                            filename: "study-notes.md",
+                            date: "2023-08-22"
+                        }
+                    ];
+            
+                    // 初始化左侧导航栏
+                    function initSidebar() {
+                        const listElement = document.getElementById('article-list');
+                        
+                        articles.forEach(article => {
+                            const listItem = document.createElement('li');
+                            listItem.className = 'article-item';
+                            
+                            const link = document.createElement('a');
+                            link.className = 'article-link';
+                            link.href = 'javascript:void(0)';
+                            link.innerHTML = `
+                                <div>${article.title}</div>
+                                <small style="color: #666;">${article.date}</small>
+                            `;
+                            
+                            link.addEventListener('click', () => loadArticle(article.filename));
+                            
+                            listItem.appendChild(link);
+                            listElement.appendChild(listItem);
+                        });
+                    }
+            
+                    // 加载并渲染Markdown文章
+                    async function loadArticle(filename) {
+                        try {
+                            const response = await fetch(filename);
+                            const markdown = await response.text();
+                            const htmlContent = marked.parse(markdown);
+                            
+                            document.getElementById('content').innerHTML = `
+                                <div class="markdown-body">
+                                    ${htmlContent}
+                                </div>
+                            `;
+                        } catch (error) {
+                            console.error('加载文章失败:', error);
+                            document.getElementById('content').innerHTML = `
+                                <div class="error">
+                                    <h2>文章加载失败</h2>
+                                    <p>请检查文件是否存在或路径是否正确</p>
+                                </div>
+                            `;
+                        }
+                    }
+            
+                    // 默认加载第一篇文章
+                    window.onload = () => {
+                        initSidebar();
+                        if (articles.length > 0) {
+                            loadArticle(articles[0].filename);
+                        }
+                    };
+                </script>
+            </div>
+        </div>
+    <!-- 页脚 开始 -->
+    <div class="footer">
+        <div class="footer_con">
+            <div class="page_auto">
+                <div class="os_footer clearfix color_cac">
+                    <div class="f_l">
+                        <p class="lh_0 mg_b_40 pd_t_10">
+                            <a href="https://jqd.tobe.host">
+                                <img src="https://s21.ax1x.com/2025/04/17/pEhcnCn.png" height="56" alt="陈家军CHAMPION" title="陈家军CHAMPION" />
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="os_footer clearfix color_cac">
+                    <div class="f_l w_400">
+                        <h3 class="fz_16 mg_b_15"><a href="https://jqd.tobe.host" class="color_cac">陈家军&天喜俱乐部</a></h3>
+                        <p class="fz_12 line_24 mg_b_10">我们是一群热爱毽球的人，我们有人传承了陈天喜教练的衣钵，有的人是敬佩陈教练的成就。我们希望为毽球运动的发展略尽绵力。</p>
+                        <p class="fz_12 line_24">联系/咨询：</p>
+                        <p class="fz_12 line_24">Mob/WeChat: 197 2237 1413</p>
+                        <p class="fz_12 line_24"><a href="mailto:2238642875@qq.com" target="_blank" class="color_cac">Email: 2238642875@qq.com</a></p>
+                    </div>
+                    <div class="f_r">
+                        <div class="f_r footer_links">
+                            
+                            <div class="f_r">
+                                <h4>合作</h4>
+                                <ul>
+                                    <li><a href="https://jqd.tobe.host/contact" target="_blank">联系我们</a></li>
+                                    <li><a href="https://jqd.tobe.host/contact#business" target="_blank">商务合作</a></li>
+                                    <li><a href="https://jqd.tobe.host/login/company?" target="_blank">赛事赞助</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="f_r">
+                                <h4>友链</h4>
+                                <ul>
+                                    <li><a href="" target="_blank">友情链接一</a></li>
+                                    <li><a href="" target="_blank">友情链接一</a></li>
+                                    <li><a href="" target="_blank">友情链接一</a></li>
+                                </ul>
+                            </div>
+                            <div class="f_r ">
+                                <h4>天喜俱乐部</h4>
+                                <ul>
+                                    <li><a href="https://jqd.tobe.host/about" target="_blank">关于我们</a></li>
+                                    <li><a href="https://jqd.tobe.host/about/partner" target="_blank">合作伙伴</a></li>
+                                    <li><a href="https://jqd.tobe.host/doc/contribution" target="_blank">投稿</a></li>
+                                    <li><a href="https://jqd.tobe.host/company/jobs" target="_blank">加入我们</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="page_auto">
+                <div class="clearfix">
+                    <div class="f_l">
+                        <div class="clearfix">
+                            <a href="https://jqd.tobe.host" class="footer_icon"></a><span class="v_m mg_r_20">&copy; 2025 天喜俱乐部</span>
+                            <a class="v_m mg_r_20" href="https://jqd.tobe.host/doc/Privacy">隐私政策</a>
+                            <a class="v_m mg_r_20" href="https://jqd.tobe.host/doc/copyright">版权声明</a>		                    
+                        </div>
+                    </div>
+                    <!-- <div class="f_r">
+                        <a class="v_m " href="" target="_blank">沪ICP备XXXXXXXX号-1</a> -->
+                        <!-- <a class="v_m mg_l_5" href="" target="_blank">吴公网安备XXXXXXXXXXX号</a> 
+                        <a class="safe" href="" target="_blank"><i class="icon icon_icp"></i></a>
+                        <a href="" target="_blank"><i class="icon icon_beian"></i></a>
+                        <a href="" target="_blank"><i class="icon icon_knet"></i></a>
+                        <a href="" target="_blank"><i class="icon icon_anquan"></i></a>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 页脚 结束 -->
+<div class="return_top hide">
+    <div class="return_arrow return_child_box" title="返回顶部">
+        <i class="icon icon_return_arrow"></i>
+    </div>
+</div>
+
+<!-- Marked.js 国内镜像脚本 -->
+  <script src="https://cdn.staticfile.org/marked/11.1.1/marked.min.js"></script>
+  <script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+</body>
+</html>
