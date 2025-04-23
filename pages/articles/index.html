@@ -16,6 +16,16 @@
         <link rel="stylesheet" type="text/css" href="/static/css/animate.css"/>
         <link rel="shortcut icon" href="https://s21.ax1x.com/2025/04/17/pEhrIht.png" type="image/x-icon" />
         <style>
+            /*导航栏样式*/
+            .article_nav{position: absolute; width: 150px;  z-index: 20; line-height: 24px; transition: all 2s linear;}
+            .article_nav.nav_scroll{position: fixed; top: 50px;}
+            .article_nav.nav_stop{position: absolute; bottom: 36px;}
+            .article_nav li{ height: 30px; line-height: 30px; padding-left: 20px; box-sizing: border-box; border-left:3px solid transparent;}
+            .article_nav li a{ display:block; color:#fff;}
+            .article_nav li.active a{color: #b58759;}
+            .article_nav li.active{border-left-color: #b58759;}
+            .article_nav li a:hover{color: #b58759;}
+
             /* 文章列表样式 */
             .article-list {
                 list-style: none;
@@ -107,7 +117,7 @@
         <div class="about_dawards bg_212">
             <div class="page_auto">
                 <div class="about_dawards_con p_r">
-                    <div class="about_dawards_nav transition fw_b bg_212 pd_b_20" id="article_nav">
+                    <div class="article_nav transition fw_b bg_424" id="article_nav">
                         <ul id="article-list"></ul>
                     </div>
                     <div class="about_dawards_info" id="content"></div>
