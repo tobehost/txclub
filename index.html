@@ -7,9 +7,9 @@
         <meta name="description" content="陈天喜教练率领的子弟中学毽球队，多次获得全国冠军及其它好成绩。天喜键球俱乐部。"/>
         <meta name="author" content="数英网"/>
     	<meta name="copyright" content="www.jqd.tobe.host"/>
-		<link rel="stylesheet" type="text/css" href="./static/css/common.css"/>
-		<link rel="stylesheet" type="text/css" href="./static/css/jqd-club.css"/>
-        <link rel="stylesheet" type="text/css" href="./static/css/animate.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/jqd-club.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/animate.css"/>
         <link rel="shortcut icon" href="https://s21.ax1x.com/2025/04/17/pEhrIht.png" type="image/x-icon" />
 	</head>
 	<body >
@@ -208,16 +208,19 @@
                 </h3>
                 <ul class="daoy_solgen_list" id="daoy_solgen_list">
                     <li class="first animated">
-                        <h5 class="fz_52 color_b58 mg_b_40">虽然从未树起“陈家军”的旗帜，但铬印已在灵魂深处</h5>
+                        <h5 class="fz_52 color_b58 mg_b_40">虽从未树起“陈家军”旗帜，但铬印已在灵魂深处</h5>
                         <p class="fz_26 color_fff lh_44 mg_b_30">每当我站在十字路口，前进或后退？坚持或放弃？<br>陈家军的荣耀都会支撑我做出正确的选择。</p>
                         <p class="color_655 fz_16">[我们]：是指所有陈天喜教练的徒子徒孙。</p>
                     </li>
                     <li class="second animated">
-                        <h5 class="fz_52 color_b58 mg_b_40">一个“有大数据揭秘、无评审团争议”的年度奖 </h5>
-                        <p class="fz_26 color_fff lh_44 mg_b_30">你的每一次阅读、关注、点赞、收藏、评论、评分、分享，<br>都将成为这个奖的重要依据。</p>
-                        <p class="color_655 fz_16">*数英指数 D.INDEX 将计算一年范围内的所有指标数据</p>
+                        <h5 class="fz_52 color_b58 mg_b_40">我们为推动毽球运动的发展积极努力，无论形式 </h5>
+                        <p class="fz_26 color_fff lh_44 mg_b_30">天喜俱乐部是浪漫主义的尝试，<br>以自媒体推动体育运动项目。</p>
+                        <p class="color_655 fz_16">希望【天喜俱乐部】有一天能成功现世</p>
                     </li>
                 </ul>
+            </div>
+        </div>
+    </div>
     <script>
         var $bodies = $('#daoy_solgen_list li');
         var _count = $bodies.length;
@@ -239,9 +242,7 @@
         // $bodies.hover(stop, go);
         go();
     </script>
-            </div>
-        </div>
-    </div>
+            
 <!-- end 陈家军+俱乐部 -->
             <!-- XXX邀请赛 -->
             <div class="bg_black bd_b_313">
@@ -252,8 +253,8 @@
                             <li>
                                 <div class="h_320 mg_b_48">
                                     <div class="pd_t_20 fz_46 lh_64 mg_b_16">
-                                        <p>参赛项目在线接受公开评审</p>
-                                        <p>读者评分+专业评委评分决定入围名单</p>
+                                        <p>Building……</p>
+                                        <p>Coming song……</p>
                                     </div>
                                     <div class="dw_rate_show">
                                         <div class="rate_star">
@@ -352,6 +353,53 @@
                     </div>
                 </div>
             </div>
+<script>
+    jmtSilde:function() {
+        var $jmtSilder = $('#jmt_silder'),
+            number = $jmtSilder.find('.jmt_control_list li'),
+            bodies = $jmtSilder.find('.jmt_silder_list li'),
+            defaultOpts = { interval: 4000 },
+            _count = $(number).length,
+            _current = 0,
+            _intervalID = null;
+        var stop = function () { window.clearInterval(_intervalID); };
+        var slide = function (opts) {
+            if (opts) {
+                _current = opts.current || 0;
+            } else {
+                _current = (_current >= (_count - 1)) ? 0 : (++_current);
+            };
+            $(bodies).fadeOut('200').eq(_current).fadeIn('500');
+            $(number).removeClass("act").eq(_current).addClass("act");
+            if(_current){
+                $jmtSilder.find('.light_sweep_bar').addClass('movedone');
+                $('.dw_rate_show .star_precent').animate({width:"0"},50);
+            }else{
+                $jmtSilder.find('.light_sweep_bar').removeClass('movedone');
+                $('.dw_rate_show .star_precent').animate({width:"100%"},1000);
+            }
+        };
+        var go = function () {
+            stop();
+            _intervalID = window.setInterval(function () { if (_count > 1) { slide(); } }, defaultOpts.interval);
+        };
+        var itemMouseOver = function (target, items) {
+            stop();
+            var i = $.inArray(target, items);
+            slide({ current: i });
+        };
+        $(number).on('click',function () {
+            if (!$(this).hasClass('act')) {
+                itemMouseOver(this, $(number)); 
+            } else {
+                stop();
+            } 
+        });
+        $(bodies).hover(stop, go);
+        $(number).hover(stop, go);
+        go();
+    }
+</script>
             <!-- 站内文章 -->
             <div class="bg_313">
                 <div class="page_auto pd_96_0">
