@@ -145,7 +145,7 @@
                             link.href = 'javascript:void(0)';
                             link.innerHTML = `
                                 <div>${article.title}</div>
-                                <span class="fz_12 color_969 mg_b_50 w_760 line_24">${article.date}</span>
+                                <p class="fz_12 color_969">${article.date}</p>
                             `;
                             
                             link.addEventListener('click', () => loadArticle(article.filename));
