@@ -1,6 +1,7 @@
 
 html,body{ background: #333131;min-width: 1200px;}
 button {margin:0;padding:0;border:none;background:none;outline:none;cursor:pointer;}
+/*width: 60-780px*/
 .w_60{ width: 60px;}
 .w_64{ width: 64px;}
 .w_80{ width: 80px;}
@@ -29,6 +30,7 @@ button {margin:0;padding:0;border:none;background:none;outline:none;cursor:point
 .w_600{ width: 600px;}
 .w_690 {width:690px;}
 .w_780{ width: 780px;}
+/*height: 48-380px*/
 .h_48{ height: 48px;}
 .h_60{ height: 60px;}
 .h_64{ height: 64px;}
@@ -46,11 +48,15 @@ button {margin:0;padding:0;border:none;background:none;outline:none;cursor:point
 .h_256{ height: 256px;}
 .h_320{ height: 320px;}
 .h_380{ height: 380px;}
+
 .h_100p{ height: 100%; }
+
 .mh_128{ min-height: 128px;}
 .mh_320{ min-height: 320px;}
+/*line-height: 0-64px*/
 .lh_64{ line-height: 64px;}
 .lh_48{ line-height: 48px;}
+.lh_44{ line-height: 44px;}
 .lh_40{ line-height: 40px;}
 .lh_32{ line-height: 32px;}
 .lh_30{ line-height: 30px;}
@@ -58,12 +64,14 @@ button {margin:0;padding:0;border:none;background:none;outline:none;cursor:point
 .lh_26{ line-height: 26px;}
 .lh_24{ line-height: 24px;}
 .lh_20{ line-height: 20px;}
+.lh_0 {line-height:0;}
+
 .mg_t_166{margin-top: 166px;}
 .mg_nt_1{margin-top: -1px;}
 .mg_nt_2{margin-top: -2px;}
 .mg_nl_20{ margin-left:-20px;}
 .mg_nl_70{ margin-left:-70px;}
-.mg_r_3{margin-right: 3px;}
+
 .mg_b_6{ margin-bottom: 6px;}
 .mg_b_12{ margin-bottom: 12px;}
 .mg_b_14{ margin-bottom: 14px;}
@@ -77,6 +85,8 @@ button {margin:0;padding:0;border:none;background:none;outline:none;cursor:point
 .mg_b_70{ margin-bottom: 70px;}
 .mg_b_90{ margin-bottom: 90px;}
 .mg_b_110{ margin-bottom: 110px;}
+
+.mg_r_3{margin-right: 3px;}
 .mg_r_8{ margin-right: 8px;}
 .mg_r_24{ margin-right: 24px;}
 .mg_r_65{ margin-right: 65px;}
@@ -135,6 +145,7 @@ button {margin:0;padding:0;border:none;background:none;outline:none;cursor:point
 .fz_44 {font-size:44px;}
 .fz_46 {font-size:46px;}
 .fz_52{ font-size: 52px;}
+
 .color_b58{color: #b58759;}
 .color_313{color:#333131;}
 .color_e0e{color:#e0dede;}
@@ -145,9 +156,11 @@ button {margin:0;padding:0;border:none;background:none;outline:none;cursor:point
 .color_807{color: #807d7d;}
 .color_898{color: #898787;}
 .color_655{color: #655e5f;}
+
 .color_golden{color:#dda430;}
 .color_silver{color:#97a3a3;}
 .color_copper{color:#bd8465;}
+
 .bg_black{ background: #000;}
 .bg_303{ background: #030303;}
 .bg_e1 {background-color:#e1e1e1;}
@@ -175,17 +188,17 @@ button {margin:0;padding:0;border:none;background:none;outline:none;cursor:point
 .bd_l_cac{border-left:1px solid #cccaca;}
 .bd_b_121{ border-bottom: 1px solid #121111;}
 .bd_l_rgba_cac{ border-left: 1px solid rgba(204, 202, 202, .2);}
+
 .show {display:block;}
 .inline_bk {display:inline-block;}
-.lh_0 {line-height:0;}
-.lh_32 {line-height:32px;}
-.lh_44{ line-height: 44px;}
+
 .o_f_h {overflow:hidden;}
 .a_r {text-align:right;}
 .a_j{ text-align: justify;}
 .ws_nw{ white-space: nowrap;}
 .bs_box{ box-sizing: border-box;}
 .substr_one {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
 .substr_1 {ext-overflow:-o-ellipsis-lastline;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;}
 .substr_2{ext-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
 .substr_3{ext-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;}
@@ -205,25 +218,32 @@ button {margin:0;padding:0;border:none;background:none;outline:none;cursor:point
 .fd_col{ -webkit-flex-direction: column; flex-direction: column;}
 .flex_1 {-webkit-flex:1;flex:1;}
 .transition {-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out;-o-transition:all .2s ease-out;transition:all .2s ease-out;}
+
 .lh76_btn {display:inline-block;height:76px;line-height:76px;text-align:center;font-size:24px;color:#b58759; box-sizing: border-box;outline: none;}
 .lh48_btn {display:inline-block;height:48px;line-height:48px;text-align:center;font-weight:bold;font-size:16px;color:#fff; box-sizing: border-box;outline: none;}
 .lh36_btn {display:inline-block;height:36px;line-height:36px;text-align:center;font-size:14px;color:#fff; box-sizing: border-box;outline: none;}
 .lh36_btn.color_b58{ color: #b58759;}
 button.lh36_btn:hover,button.lh48_btn:hover{ cursor: pointer;opacity: 0.95;}
+
 a.bd_b58:hover{ color: #b58759; }
 a.bg_b58:hover{ color:#fff; background: #be8e5e;}
+
 .footer_con a.color_cac{color: #cccaca;}
 .bg_313 .item_bg{ background-color: #444242; box-sizing: border-box;}
 .bg_424 .item_bg{ background-color: #333131; box-sizing: border-box;}
+
 .dw_tag{ display:inline-block; background:url(../images/dawards/dawards_tag.png) no-repeat; background-size: 184px; vertical-align:middle; overflow:hidden;}
 .grand_tag {width: 32px; height: 32px; background-position: 0 0;}
 .golden_tag{width: 32px; height: 32px; background-position: -38.5px 0;}
 .silver_tag{width: 32px; height: 32px; background-position: -76px 0;}
 .copper_tag{width: 32px; height: 32px; background-position: -114.5px 0;}
 .null_tag  {width: 32px; height: 32px; background-position: -152px 0;}
+
 .tan,.tan:after {position:absolute;top:-12px;left:22px;width:0;height:0;border:6px solid transparent;border-bottom-color:#fff;}
 .tan:after {content:"";top:-4px;left:-6px;border-bottom-color:#fff;}
 .dwb_icon{ display:inline-block; background:url(../images/dawards/2022/dw_icon_2022_min.png) no-repeat; background-size: 220px; vertical-align:middle; overflow:hidden;}
+
+/*雪碧图*/
 .num_0{width: 20px;height: 31px;background-position: 1px -42px;}
 .num_1{width: 18px;height: 31px;background-position: -20px -42px;}
 .num_2{width: 20px;height: 31px;background-position: -40px -42px;}
@@ -527,12 +547,15 @@ a.color_fff:hover .arrow_right:before{ border-color: #b58759; }
 .jmt_auto .jmt_btn_zone{ position: absolute; left: 0; bottom: 109px; }
 .jmt_silder_list{ position: relative; }
 .jmt_silder_list li{ position: absolute; left: 0; top: 0;}
-/* .jmt_control_box .jmtcl_first{ padding-bottom: 12px; padding-top: 12px; }
+
+/*原稿未使用 begin */
+.jmt_control_box .jmtcl_first{ padding-bottom: 12px; padding-top: 12px; }
 .jmt_control_box .jmtcl_second{ padding-bottom: 12px; padding-top: 12px; }
 .jmt_control_box .jmtcl_first::after{display: block; content: ""; height: 8px; background: #333131; width: 87px; position: absolute; bottom:-5px; left: 9px; }
 .jmt_control_box .wing_tag{position: absolute;right: -9px;bottom: -38px;}
 .jmt_control_box li{ color: #333131; cursor: pointer; user-select: none; transition: all .2s linear;}
-.jmt_control_box li.act{ color: #b58759; }*/
+.jmt_control_box li.act{ color: #b58759; }
+/* off */
 
 .jmt_control_box{position: absolute;top: 100px;right:54px;width: 240px;box-sizing: border-box;text-align: center;}
 .jmt_control_box li{position: relative; width: 72px; height: 72px; box-sizing: border-box; border: 5px solid #333131; border-radius: 50%; color: #333131; cursor: pointer; user-select: none; transition: all .2s linear;}
@@ -743,6 +766,7 @@ a.color_fff:hover .arrow_right:before{ border-color: #b58759; }
 .jtextarea.compulsory::placeholder{ color: #cacacc; }
 .jtextarea.compulsory::-moz-placeholder{ color: #cacacc; }
 .jtextarea.error{ border-color: #f00; }
+
 .about_dawards{position: relative;  }
 .about_dawards_title {position: relative; }
 .about_dawards_title .share_links{ position: absolute; right: 0; top:80%; z-index: 10; height: 40px; }
@@ -847,9 +871,10 @@ a.hover_item, a.hover_item:hover{ color: #b58759;}
 
 
 .dws_icon{ position: absolute; right: 15px; top: 0;width: 36px; height: 46px; }
-.golden_icon{ background:url(../image/ico/badge_golden.ico) no-repeat}
-.silver_icon{ background:url(../image/ico/badge_silver.ico)}
-.copper_icon{ background:url(../image/ico/badge_copper.ico)}
+.golden_icon{ background:url(/static/image/ico/badge_golden.ico) no-repeat}
+.silver_icon{ background:url(/static/image/ico/badge_silver.ico)}
+.copper_icon{ background:url(/static/image/ico/badge_copper.ico)}
+
 .winners_con .dwp_list .item_cover{ border-bottom-color:#444242;}
 .winners_con .dwp_list .golden_item .item_cover {border-bottom-color:#dda430;}
 .winners_con .dwp_list .silver_item .item_cover {border-bottom-color:#97a3a3;}
