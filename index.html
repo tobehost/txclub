@@ -223,27 +223,6 @@
             </div>
         </div>
     </div>
-    <script>
-        var $bodies = $('#daoy_solgen_list li');
-        var _count = $bodies.length;
-        var defaultOpts = { interval: 4000 };
-        var _current = 0;
-        var _intervalID = null;
-        var stop = function () { window.clearInterval(_intervalID); };
-        var slides = function () {
-            _current = (_current >= (_count - 1)) ? 0 : (++_current);
-            $bodies.eq(_current).siblings('li').removeClass('fadeIn').addClass('fadeOut');
-            setTimeout(function(){
-                $bodies.eq(_current).removeClass('fadeOut').addClass('fadeIn');
-            }, 500);
-        };
-        var go = function () {
-            stop();
-            _intervalID = window.setInterval(function () { if (_count > 1) { slides(); } }, defaultOpts.interval);
-        };
-        // $bodies.hover(stop, go);
-        go();
-    </script>
             
 <!-- end 陈家军+俱乐部 -->
             <!-- XXX邀请赛 -->
@@ -355,51 +334,7 @@
                     </div>
                 </div>
             </div>
-<script>
-        var $jmtSilder = $('#jmt_silder'),
-            number = $jmtSilder.find('.jmt_control_list li'),
-            bodies = $jmtSilder.find('.jmt_silder_list li'),
-            defaultOpts = { interval: 4000 },
-            _count = $(number).length,
-            _current = 0,
-            _intervalID = null;
-        var stop = function () { window.clearInterval(_intervalID); };
-        var slide = function (opts) {
-            if (opts) {
-                _current = opts.current || 0;
-            } else {
-                _current = (_current >= (_count - 1)) ? 0 : (++_current);
-            };
-            $(bodies).fadeOut('200').eq(_current).fadeIn('500');
-            $(number).removeClass("act").eq(_current).addClass("act");
-            if(_current){
-                $jmtSilder.find('.light_sweep_bar').addClass('movedone');
-                $('.dw_rate_show .star_precent').animate({width:"0"},50);
-            }else{
-                $jmtSilder.find('.light_sweep_bar').removeClass('movedone');
-                $('.dw_rate_show .star_precent').animate({width:"100%"},1000);
-            }
-        };
-        var go = function () {
-            stop();
-            _intervalID = window.setInterval(function () { if (_count > 1) { slide(); } }, defaultOpts.interval);
-        };
-        var itemMouseOver = function (target, items) {
-            stop();
-            var i = $.inArray(target, items);
-            slide({ current: i });
-        };
-        $(number).on('click',function () {
-            if (!$(this).hasClass('act')) {
-                itemMouseOver(this, $(number)); 
-            } else {
-                stop();
-            } 
-        });
-        $(bodies).hover(stop, go);
-        $(number).hover(stop, go);
-        go();
-</script>
+
             <!-- 站内文章 -->
             <div class="bg_313">
                 <div class="page_auto pd_96_0">
@@ -530,23 +465,13 @@
         <a title="在线客服" href="javascript:void(0)"><i class="icon icon_return_service"></i></a>
     </div>
     <div class="return_code return_child_box">
-        <i class="icon icon_return_code"></i>
+        <i class="iconfont icon-weixin-2"></i>
         <div class="return_code_box">
         	<div class="return_code_box_con">
-                <div class="return_code_title">
-                    <span class="active">APP</span>
-                    <span>微信</span>
-                </div>
                 <ul class="bg_fff">
                     <li class="pd_20">
-                        <a href="https://app.digitaling.com">
-                            <img width="90" alt="下载数英APP" class="v_m" src=""/>
-                            <p>下载数英APP</p>
-                        </a>							
-                    </li>
-                    <li class="pd_20 hide cur_d">
-                        <img width="90" alt="关注数英微信号" class="v_m" src=""/>
-                        <p>关注数英微信号</p>
+                        <img width="90" alt="申请会员" class="v_m" src=""/>
+                        <p>申请成为会员</p>
                     </li>
                 </ul>
             </div>
@@ -557,7 +482,7 @@
         <link href="/static/css/swiper-4.5.3.min.css" rel="stylesheet" />
         <script type="text/javascript" src="/static/js/swiper-4.5.3.min.js"></script>
 		<script type="text/javascript" src="/static/js/common.js"></script>
-		<script type="text/javascript" src="/static/js/index.min.js"></script>
+		<script type="text/javascript" src="/static/js/dwards.js"></script>
         <script type="text/javascript">
             $(function(){
 		        common.init();

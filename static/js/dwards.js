@@ -92,42 +92,42 @@ var dwIndex = {
         }
     },
     //kv 杞挱
-    swiperKv:function(){
-        // /*杞挱鏂伴椈*/
-        var swiper = new Swiper('#kv_swiper', {
-            effect: 'fade',
-            pagination: {
-                el: '.swiper-pagination',
-                clickable :true
-            },
-            spaceBetween: 0,
-            centeredSlides: true,
-            autoplay: {
-                delay: 4000,
-                stopOnLastSlide: false,
-                disableOnInteraction: true,
-            },
-            roundLengths:true,
-            speed:800,
-            loop:true
-        });
-        // //榧犳爣瑕嗙洊鍋滄鑷姩鍒囨崲
-        // $('#kv_swiper').mouseover(function() {
-        //     swiper.stopAutoplay();
-        // })
-        // $('#kv_swiper').mouseout(function() {
-        //     //some code
-        //     swiper.startAutoplay();
-        // })
-        //榧犳爣瑕嗙洊鍋滄鑷姩鍒囨崲
-        swiper.el.onmouseover = function(){
-            swiper.autoplay.stop();
-        }
-        //榧犳爣绂诲紑寮€濮嬭嚜鍔ㄥ垏鎹�
-        swiper.el.onmouseout = function(){
-            swiper.autoplay.start();
-        }
-    },
+    // swiperKv:function(){
+    //     // /*杞挱鏂伴椈*/
+    //     var swiper = new Swiper('#kv_swiper', {
+    //         effect: 'fade',
+    //         pagination: {
+    //             el: '.swiper-pagination',
+    //             clickable :true
+    //         },
+    //         spaceBetween: 0,
+    //         centeredSlides: true,
+    //         autoplay: {
+    //             delay: 4000,
+    //             stopOnLastSlide: false,
+    //             disableOnInteraction: true,
+    //         },
+    //         roundLengths:true,
+    //         speed:800,
+    //         loop:true
+    //     });
+    //     // //榧犳爣瑕嗙洊鍋滄鑷姩鍒囨崲
+    //     // $('#kv_swiper').mouseover(function() {
+    //     //     swiper.stopAutoplay();
+    //     // })
+    //     // $('#kv_swiper').mouseout(function() {
+    //     //     //some code
+    //     //     swiper.startAutoplay();
+    //     // })
+    //     //榧犳爣瑕嗙洊鍋滄鑷姩鍒囨崲
+    //     swiper.el.onmouseover = function(){
+    //         swiper.autoplay.stop();
+    //     }
+    //     //榧犳爣绂诲紑寮€濮嬭嚜鍔ㄥ垏鎹�
+    //     swiper.el.onmouseout = function(){
+    //         swiper.autoplay.start();
+    //     }
+    // },
     swiperDiqi:function(){
         var newData = fqsDatas.getPosterData(),
             $fqList = $('#diqi_list'),
